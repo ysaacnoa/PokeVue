@@ -1,0 +1,76 @@
+html, body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background-image: url('/public/pokemon.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+.bubbles{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  pointer-events: none;
+  z-index: -1;
+
+}
+
+.bubbles span{
+  position: relative;
+  width: 20px;  /* Ajusta el tamaño según tus preferencias */
+  height: 20px; /* Ajusta el tamaño según tus preferencias */
+  background: #00796b;  /* Amarillo */
+  margin: 0 4px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px #00796b44,  /* Sombra Amarilla */
+              0 0 15px #00796b,    /* Sombra Amarilla */
+              0 0 20px #00796b;   /* Sombra Amarilla */
+  animation: animate 15s linear infinite;
+  animation-duration: calc(140s / var(--i));
+}
+
+.bubbles span:nth-child(even){
+  background: #4caf50;  /* Verde */
+  box-shadow: 0 0 0 10px #4caf5044,  /* Sombra Verde */
+              0 0 15px #4caf50,     /* Sombra Verde */
+              0 0 20px #4caf50;    /* Sombra Verde */
+}
+/* Añadida la animación animate */
+@keyframes animate {
+  0% {
+    transform: translateY(-100vh) scale(0.4);
+  }
+  100% {
+    transform: translateY(100vh) rotate(1);
+  }
+}
+@media screen and (max-width: 767px) {
+  .bubbles span {
+    width: 5px;
+    height: 5px;
+    box-shadow: 0 0 0 5px #00796b44,  /* Sombra Amarilla */
+                0 0 8px #00796b,     /* Sombra Amarilla */
+                0 0 12px #00796b;    /* Sombra Amarilla */
+  }
+
+  .bubbles span:nth-child(even) {
+    box-shadow: 0 0 0 5px #4caf5044,  /* Sombra Verde */
+                0 0 8px #4caf50,     /* Sombra Verde */
+                0 0 12px #4caf50;    /* Sombra Verde */
+  }
+}
